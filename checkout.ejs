@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <script src="js/scripts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body>
+    <section id="header">
+      <a href="#">
+        <img src="/public/img/logo.png" class="logo">
+      </a>
+      <div>
+        <ul id="navbar">
+          <li>
+            <a href="index.ejs">Accueil</a>
+          </li>
+          <li>
+            <a href="shop.ejs">Produits</a>
+          </li>
+          <li>
+            <a href="about.ejs">A propos</a>
+          </li>
+          <li>
+            <a href="cart.ejs">Panier</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="checkout" class="section-p1">
+      <form method="post" action="/place_order">
+        <div>
+          <label for="">Nom</label>
+          <input type="text" placeholder="nom" name="name">
+        </div>
+        <div>
+          <label for="">Email</label>
+          <input type="text" placeholder="email" name="email">
+        </div>
+        <div>
+          <label for="">Telephone</label>
+          <input type="text" placeholder="telephone" name="phone">
+        </div>
+        <div>
+          <label for="">Ville</label>
+          <input type="text" placeholder="ville" name="city">
+        </div>
+        <div>
+          <label for="">Adresse</label>
+          <input type="text" placeholder="adresse" name="address">
+        </div>
+        <div>
+          <p>Total: <%= total %>dh</p>
+          <input type="submit" class="proceed_to_checkout" value="la caisse">
+        </div>
+    </form>
+    </section>
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="/public/img/logo-white-12.png">
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><strong>Adresse:</strong> Route De Meknes – Oulja, Salé B.P 260 Rabat</p>
+        <p><strong>Service client:</strong> +212 660 048 825 / +212 663 555 990</p>
+        <p><strong>Email:</strong> contact@briqueterieslaoui.ma</p>
+      </div>
+    </footer>
+  </body>
+</html>

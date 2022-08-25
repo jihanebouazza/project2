@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <script src="/public/js/scripts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body>
+    <section id="header">
+      <a href="#">
+        <img src="/public/img/logo.png" class="logo">
+      </a>
+      <div>
+        <ul id="navbar">
+          <li>
+            <a href="index.ejs">Home</a>
+          </li>
+          <li>
+            <a  class="active" href="shop.ejs">Produit</a>
+          </li>
+          <li>
+            <a href="about.ejs">About</a>
+          </li>
+          <li>
+            <a href="cart.ejs">Panier</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="page-header">
+    </section>
+    <section id="product2" class="section-p1">
+      <div class="pro-container1">
+        <% result.forEach(function(item) { %>
+        <div class="pro1" onclick="window.location.href='sproduct.ejs'">
+          <img src="/public/img/<%= item.image %>">
+          <div class="des1">
+            <h5><%= item.name %></h5>
+          </div>
+          <h5><%= item.price %>dh/Unité</h5>
+          <form action="/add_to_cart" method="post">
+            <!--we're gonna add product details to this form -->
+            <!--so we can add product to cart-->
+            <!--we gonna store hidden input-->
+            <input type="hidden" name="id" value="<%= item.id %>">
+            <input type="hidden" name="name" value="<%= item.name %>">
+            <input type="hidden" name="price" value="<%= item.price %>">
+            <input type="hidden" name="quantity" value="1">
+            <input type="hidden" name="image" value="<%= item.image %>">
+            <input type="submit" class="cart-btn" value="Ajouter au panier"> 
+          </form>
+        </div>
+        <% }) %>
+      </div>
+
+    </section>
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="/public/img/logo-white-12.png">
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><strong>Adresse:</strong> Route De Meknes – Oulja, Salé B.P 260 Rabat</p>
+        <p><strong>Service client:</strong> +212 660 048 825 / +212 663 555 990</p>
+        <p><strong>Email:</strong> contact@briqueterieslaoui.ma</p>
+      </div>
+    </footer>
+  </body>
+</html>

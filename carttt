@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/main.css">
+    <script src="/public/js/scripts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  </head>
+  <body> 
+    <section id="header">
+      <a href="#">
+        <img src="/public/img/logo.png" class="logo">
+      </a>
+      <div>
+        <ul id="navbar">
+          <li>
+            <a href="index.ejs">Accueil</a>
+          </li>
+          <li>
+            <a href="shop.ejs">Produits</a>
+          </li>
+          <li>
+            <a href="about.ejs">A propos</a>
+          </li>
+          <li>
+            <a class="active" href="cart.ejs">Panier</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="cart" class="section-p1">
+      <table width="100%">
+        <thead>
+          <tr>
+            <td>Supprimer</td>
+            <td>Image</td>
+            <td>Produit</td>
+            <td>Prix</td>
+            <td>Quantité</td>
+            <td>Total</td>
+          </tr>
+        </thead>
+
+        <tbody class="cart-content">
+
+          <% cart.forEach(function(item) { %>
+          <tr> 
+            <td><a href="#"><img class="remove" src="/public/img/icons8-remove-24.png"></a></td>
+            <td><img src="/public/img/<%= item.image %>"></td>
+            <td><%= item.name %></td>
+            <td><%= item.price %>dh</td>
+            <td><input class="cart-items" type="number" value="1"></td>
+            <td><%= item.price*item.quantity %>dh</td>
+          </tr>
+
+        
+        </tbody>
+      </table>
+      <% }) %>
+    </section>
+     <section id="cart-add" class="sectio-p1">
+      <div id="total">
+        <h3>TOTAL</h3>
+        <table>
+          <tr>
+            <td>Total</td>
+            <td class="totaldh">250dh</td>
+          </tr>
+          <tr>
+            <td>Livraison</td>
+            <td>Prix</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td><strong>250dh</strong></td>
+          </tr>
+        </table>
+        <button>Passer à la caisse</button>
+      </div>
+     </section>
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="/public/img/logo-white-12.png">
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><strong>Adresse:</strong> Route De Meknes – Oulja, Salé B.P 260 Rabat</p>
+        <p><strong>Service client:</strong> +212 660 048 825 / +212 663 555 990</p>
+        <p><strong>Email:</strong> contact@briqueterieslaoui.ma</p>
+      </div>
+    </footer>
+  </body>
+</html>
